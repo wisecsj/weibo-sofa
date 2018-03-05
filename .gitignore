@@ -1,0 +1,11 @@
+__pycache__/
+
+build/
+
+dist/
+
+*.egg-info
+
+record
+
+weibo.log

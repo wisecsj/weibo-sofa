@@ -1,0 +1,32 @@
+retcode:
+
+        4038: '#L{登录次数过于频繁，}<a href="http://help.weibo.com/faq/q/85/12699#12699" target="_blank">#L{查看帮助}</a>',
+        4049: "#L{请填写验证码}",
+        4010: '#L{帐号尚未激活。}<a target="_blank" href="http://weibo.com/signup/v5/resend?username=#{USERNAME}">#L{重发激活邮件}</a>',
+        4090: "#L{此帐号未激活，请登录原帐号}",
+        5024: "#L{请填写正确的微盾动态码}",
+        5025: "#L{动态码有误，请重新输入}",
+        5: '#L{尚未注册微博，}<a href="http://weibo.com/logout.php?backurl=' + encodeURIComponent("//weibo.com/signup/signup.php") + '"' + (b ? "" : ' target="_blank"') + ">#L{马上注册}</a>",
+        101: '#L{用户名或密码错误。}<a href="http://help.weibo.com/faq/q/85/12606#12606" target="_blank">#L{查看帮助}</a>',
+        4098: '#L{您的帐号还没有设置密码，为方便登录请}<a href="https://login.sina.com.cn/getpass.html?entry=weibo" target="_blank">#L{重置密码}</a>',
+        9999: "#L{当前网络超时，请稍后再试}",
+        2071: "#L{您已开启登录保护，请扫码登录}"
+
+
+pinCode:
+
+    this.getPinCodeUrl = function(a) {
+        a == undefined && (a = 0);
+        pcid && (me.loginExtraQuery.pcid = pcid);
+        return pincodeUrl + "?r=" + Math.floor(Math.random() * 1e8) + "&s=" + a + (pcid.length > 0 ? "&p=" + pcid : "")
+    }
+
+
+nonce(nonce=0时，在客户端生成):
+    var makeNonce = function(a) {
+        var b = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+          , c = "";
+        for (var d = 0; d < a; d++)
+            c += b.charAt(Math.ceil(Math.random() * 1e6) % b.length);
+        return c
+    }
